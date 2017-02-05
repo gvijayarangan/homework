@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Stock;
 use App\Customer;
+use Illuminate\Auth\Middleware\Authenticate;
 
 class StockController extends Controller
 {
@@ -40,7 +41,12 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->validate($request, [
+            'symbol' => 'required',
+            'name' => 'required',
+            'shares'=>'required',
+            'purchased'=>'required',
+        ]);
         $stock= new Stock($request->all());
         $stock->save();
 
@@ -72,5 +78,27 @@ class StockController extends Controller
     {
         Stock::find($id)->delete();
         return redirect('stocks');
+    }
+    public function stringify($id)
+    {
+        // $investment=investment::where('id', $id)->select('customer_id','category','description','acquired_value','acquired_date','recent_value','recent_date')->first();
+        $customer = Customer::where('cust_number', $id)->select('cust_number','name')->first();
+
+        $customer = $customer->toArray();
+        return response()->json($customer);
+
+    }
+    public function stringify1($id)
+    {
+        // $investment=investment::where('id', $id)->select('customer_id','category','description','acquired_value','acquired_date','recent_value','recent_date')->first();
+
+        $stock=stock::where('symbol', $id)->select('symbol','name','shares','purchase_price','purchased')->first();
+
+        $stock = $stock->toArray();
+        return response()->json($stock);
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }

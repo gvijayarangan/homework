@@ -1,20 +1,7 @@
-
 @extends('app')
 @section('content')
-    <h1>Create New Investment</h1>
-    {!! Form::open(['url' => 'investments']) !!}
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <div class="form-group">
-        {!! Form::select('customer_id', $customers) !!}
-    </div>
+    <h1>Update Mutualfund</h1>
+    {!! Form::model($mutualfund,['method' => 'PATCH','route'=>['mutualfunds.update',$mutualfund->id]]) !!}
     <div class="form-group">
         {!! Form::label('category', 'Category:') !!}
         {!! Form::text('category',null,['class'=>'form-control']) !!}
@@ -39,9 +26,8 @@
         {!! Form::label('recent_date', 'Recent Date:') !!}
         {!! Form::text('recent_date',null,['class'=>'form-control']) !!}
     </div>
-
     <div class="form-group">
-        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
     </div>
     {!! Form::close() !!}
 @stop

@@ -1,8 +1,8 @@
 
 @extends('app')
 @section('content')
-    <h1>Create New Investment</h1>
-    {!! Form::open(['url' => 'investments']) !!}
+    <h1>Create New Mutualfund</h1>
+    {!! Form::open(['url' => 'mutualfunds']) !!}
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>

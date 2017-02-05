@@ -1,25 +1,23 @@
-
-        <!DOCTYPE html>
 <html>
-        <head>
-            <title>Login Form Validation</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+<head>
+    <title>EFS Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-        <style>
-            body {
-                font-family: 'Lato';
-            }
+    <style>
+        body {
+            font-family: 'Lato';
+        }
 
-            .fa-btn {
-                margin-right: 6px;
-            }
-        </style>
-        </head>
+        .fa-btn {
+            margin-right: 6px;
+        }
+    </style>
+</head>
 <body style="background-color:lightgrey;">
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -75,8 +73,6 @@
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 <h1 style="color:darkblue; text-align:center; font-size:200%"> <b>EAGLE FINANCIAL SERVICES</b>
 </h1>
-<h1 style="text-align:center;font-size:100%"> <a style="color:red; "href="http://localhost/efs1/public/home"> Click on the Home page </a>
-
 <h1 style="text-align:center;"><img style="-webkit-user-select: none" src="http://nebula.wsimg.com/381b1a9a823b593df44577d8bfed4493?AccessKeyId=8C5D0257F10D0CEAECE7&disposition=0&alloworigin=1"
                                     alt="Eagle View" width="1000" height="500">
 </h1>
@@ -88,9 +84,54 @@
 
 <!DOCTYPE html>
 <html>
-        <h1 style="text-align:center; font-size:200%"><i>"We watch your financial security"</i></h1>
+<head>
+    <meta charset9="EFS-1">
+        <script type="text/javascript">
+            function portcheck(){
+                var selected;
+                alert("Click OK to continue viewing profile");
+                var yourSelect = document.getElementById( "select-id" );
+                var sel = yourSelect.options[ yourSelect.selectedIndex ].value;
+                document.getElementsByTagName('option');
+
+                if(sel=="Review customers portfolio")
+                {
+                    window.open("http://localhost/efs1/public/customers");
+                }
+                else if(sel=="Investments")
+                {
+                    window.open("http://localhost/efs1/public/investments");
+                }
+                else if(sel=="Stocks")
+                {
+                    window.open("http://localhost/efs1/public/stocks");
+                }
+                else if(sel=="Mutualfunds")
+                {
+                    window.open("http://localhost/efs1/public/mutualfunds");
+                }
+            }
+        </script>
+        </head>
+<body>
+
+<h1 style="text-align:Left; font-size:200%"><i>"Welcome Back!"</i></h1>
+<h1 style="text-align:center; font-size:200%"><i>"We watch your financial security"</i></h1>
+
+<h1 style="text-align:LEFT; font-size:150%"> <b>PORTFOLIO PLANNING OPTIONS </b>:</h1>
 
 <body style="background-color:lightgrey;">
+
+<form name="form1" id="Eagle_portfolio">
+    <select name="Portfolio" id="select-id">
+        <option value="Review customers portfolio" name="s1" id="1" >Review customers portfolio</option>
+        <option value="Stocks" id="2">Stocks</option>
+        <option value="Investments" id="3">Investments</option>
+        <option value="Mutualfunds" id="3">Mutual Funds</option>
+    </select>
+    <br><br>
+    <input type="submit" onclick="portcheck()">
+</form>
 
 </body>
 </html>

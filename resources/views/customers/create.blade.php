@@ -2,6 +2,15 @@
 @section('content')
     <h1>Create New Customer</h1>
     {!! Form::open(['url' => 'customers']) !!}
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="form-group">
         {!! Form::label('name', 'Name:') !!}
         {!! Form::text('name',null,['class'=>'form-control']) !!}

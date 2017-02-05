@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStocksTable extends Migration
+class CreateMutualfundsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,18 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('mutualfunds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('symbol');
-            $table->string('name');
-            $table->integer('shares');
-            $table->float('purchase_price');
-            $table->date('purchased');
+            $table->string('category');
+            $table->string('description');
+            $table->float('acquired_value');
+            $table->date('acquired_date');
+            $table->float('recent_value');
+            $table->date('recent_date');
             $table->integer('customer_id')->unsigned();
             $table->timestamps();
         });
+
         }
         /**
      * Reverse the migrations.
@@ -29,6 +31,6 @@ class CreateStocksTable extends Migration
      * @return void
      */
     public function down()
-    {Schema::drop('stocks');
+    {Schema::drop('mutualfunds');
     }
 }

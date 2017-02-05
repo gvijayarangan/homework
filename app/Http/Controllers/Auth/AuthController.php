@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'http://localhost/efs1/public/';
 
     /**
      * Create a new authentication controller instance.

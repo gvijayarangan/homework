@@ -23,7 +23,6 @@ class CreateInvestmentsTable extends Migration
             $table->integer('customer_id')->unsigned();
             $table->timestamps();
         });
-
         }
         /**
      * Reverse the migrations.
